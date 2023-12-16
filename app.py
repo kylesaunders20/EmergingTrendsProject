@@ -38,5 +38,29 @@ def predict():
 
     return render_template('mpgprediction.html')
 
+@app.route('/predict_diabetes', methods=['GET', 'POST'])
+def predict_diabetes():
+    if request.method == 'POST':
+        # Getting data excluding the blood glucose level
+        pregnancies = request.form.get('pregnancies', type=int)
+        bloodPressure = request.form.get('bloodPressure', type=int)
+        skinThickness = request.form.get('skinThickness', type=int)
+        insulin = request.form.get('insulin', type=int)
+        bmi = request.form.get('bmi', type=float)
+        diabetesPedigreeFunction = request.form.get('diabetesPedigreeFunction', type=float)
+        age = request.form.get('age', type=int)
+
+        # Preparing the input data
+        input_data = [pregnancies, bloodPressure, skinThickness, insulin, bmi, diabetesPedigreeFunction, age]
+
+        # Creating a prediction from diabetes model / rounding result
+        prediction = diabetes_model.predict([input_data])[0]
+        prediction_rounded = round(prediction, 2)
+
+        result = f"Predicted glucose level: {prediction_rounded}"
+        return render_template('results.html', result=result)
+
+    return render_template('diabetes.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
