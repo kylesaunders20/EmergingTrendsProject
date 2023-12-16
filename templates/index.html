@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Welcome to Kyle's Crystal Ball!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="main-container">
+        <h1>Crystal Ball or Machine Learning?</h1>
+        <p>Select a prediction model to get started:</p>
+        <div class="button-group">
+            <a href="/predict" class="predict-button">Predict MPG</a>
+            <a href="/predict_diabetes" class="predict-button">Predict Diabetes</a>
+        </div>
+        <img src="{{ url_for('static', filename='crystalball2.png') }}" alt="Crystal Ball">
+    </div>
+</body>
+</html>
