@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="result-container">
+        <img src="{{ url_for('static', filename='doctor.png') }}" alt="Prediction Result">
+        <p class="result">{{ result }}</p>
+        <a href="/" class="predict-button">Go Back</a>
+    </div>
+</body>
+</html>

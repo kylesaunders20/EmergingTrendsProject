@@ -7,7 +7,7 @@ app = Flask(__name__)
 # loading the models in
 
 mpg_model = load(r"C:\Users\kyle_\OneDrive\Desktop\Assignments Python May 2023\EmergingTrendsProject\Models\mpg_model.joblib")
-diabetes_model = load(r"C:\Users\kyle_\OneDrive\Desktop\Assignments Python May 2023\EmergingTrendsProject\Models\diabetes_prediction.joblib")
+diabetes_model = load(r"C:\Users\kyle_\OneDrive\Desktop\Assignments Python May 2023\EmergingTrendsProject\Models\diabetes_model.joblib")
 
 @app.route('/')
 def index():
@@ -43,22 +43,22 @@ def predict_diabetes():
     if request.method == 'POST':
         # Getting data excluding the blood glucose level
         pregnancies = request.form.get('pregnancies', type=int)
-        bloodPressure = request.form.get('bloodPressure', type=int)
-        skinThickness = request.form.get('skinThickness', type=int)
+        blood_pressure = request.form.get('bloodPressure', type=int)
+        skin_thickness = request.form.get('skinThickness', type=int)
         insulin = request.form.get('insulin', type=int)
         bmi = request.form.get('bmi', type=float)
-        diabetesPedigreeFunction = request.form.get('diabetesPedigreeFunction', type=float)
+        diabetes_pedigree_function = request.form.get('diabetesPedigreeFunction', type=float)
         age = request.form.get('age', type=int)
 
         # Preparing the input data
-        input_data = [pregnancies, bloodPressure, skinThickness, insulin, bmi, diabetesPedigreeFunction, age]
+        input_data = [pregnancies, blood_pressure, skin_thickness, insulin, bmi, diabetes_pedigree_function, age]
 
         # Creating a prediction from diabetes model / rounding result
         prediction = diabetes_model.predict([input_data])[0]
         prediction_rounded = round(prediction, 2)
 
         result = f"Predicted glucose level: {prediction_rounded}"
-        return render_template('results.html', result=result)
+        return render_template('diabetes_results.html', result=result)
 
     return render_template('diabetes.html')
 
