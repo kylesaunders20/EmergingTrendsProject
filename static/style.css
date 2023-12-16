@@ -37,3 +37,63 @@
     border-radius: 10px;
     margin-top: 20px;
 }
+/* MPG Prediction Page Styles */
+.mpg-body {
+    background-color: #e9ecef; /* Light gray background for the body */
+}
+
+.mpg-container {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 25px;
+    max-width: 550px;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.mpg-container h1 {
+    color: #28a745; /* Green color for the heading */
+}
+
+.mpg-container form {
+    margin-top: 20px;
+}
+
+.mpg-container button {
+    background-color: #28a745; /* Green background for the button */
+}
+
+.mpg-container button:hover {
+    background-color: #218838;
+}
+/* Prediction Result Page Styles */
+.result-container {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 600px;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.result-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.result-container .result {
+    font-size: 1.2rem;
+    color: #17a2b8; /* Teal color for results */
+    margin-bottom: 20px;
+}
+
+.result-container a.predict-button {
+    background-color: #17a2b8; /* Teal background for the button */
+}
+
+.result-container a.predict-button:hover {
+    background-color: #138496;
+}

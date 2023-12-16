@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MPG Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="mpg-body">
+    <div class="mpg-container">
+        <h1>MPG Prediction Form</h1>
+        <form action="/predict" method="post">
+
+            <label for="cylinders">Cylinders:</label>
+            <input type="number" id="cylinders" name="cylinders" min="1" placeholder="Enter number of cylinders" required><br><br>
+
+            <label for="horsepower">Horsepower:</label>
+            <input type="number" id="horsepower" name="horsepower" min="1" placeholder="Enter horsepower" required><br><br>
+
+            <label for="weight">Weight:</label>
+            <input type="number" id="weight" name="weight" min="1" placeholder="Enter weight of vehicle" required><br><br>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="1" placeholder="Enter vehicle age in years" required><br><br>
+
+            <label for="origin_japan">Originated in Japan:</label>
+            <select id="origin_japan" name="origin_japan">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select><br><br>
+
+            <label for="origin_usa">Originated in USA:</label>
+            <select id="origin_usa" name="origin_usa">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select><br><br>
+            <button type="submit">Predict MPG</button>
+        </form>
+    </div>
+</body>
+</html>
